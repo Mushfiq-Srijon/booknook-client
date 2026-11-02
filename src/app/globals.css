@@ -1,10 +1,14 @@
-
 @import "tailwindcss";
 @import "@heroui/styles";
 
 :root {
-  --background: #faf8f2;
-  --foreground: #24352d;
+  --background: #f7f4ea;
+  --foreground: #243d32;
+  --primary: #243d32;
+  --accent: #d9a66b;
+  --sage: #dce5db;
+  --muted: #777b70;
+  --white: #ffffff;
 }
 
 * {
@@ -16,13 +20,99 @@ html {
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
 }
 
 button,
 a {
   -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: #d9a66b;
+  color: #243d32;
+}
+
+.container-width {
+  width: min(1200px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.section-padding {
+  padding-block: 80px;
+}
+
+.section-label {
+  color: #a16f39;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 23px;
+  background: #243d32;
+  color: white;
+  border: 1px solid #243d32;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.primary-button:hover {
+  background: #365a48;
+}
+
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 23px;
+  background: transparent;
+  color: #243d32;
+  border: 1px solid #243d32;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.secondary-button:hover {
+  background: #dce5db;
+}
+
+@media (max-width: 640px) {
+  .container-width {
+    width: calc(100% - 32px);
+  }
+
+  .section-padding {
+    padding-block: 55px;
+  }
 }
