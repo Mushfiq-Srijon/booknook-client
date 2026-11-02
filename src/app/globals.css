@@ -1,0 +1,28 @@
+
+@import "tailwindcss";
+@import "@heroui/styles";
+
+:root {
+  --background: #faf8f2;
+  --foreground: #24352d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
