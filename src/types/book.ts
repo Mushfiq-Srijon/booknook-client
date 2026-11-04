@@ -15,6 +15,7 @@ export interface Book {
     totalCopies: number;
     availableCopies: number;
     addedBy: {
+        userId: string;
         name: string;
         email: string;
     };
