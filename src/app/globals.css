@@ -2,13 +2,48 @@
 @import "@heroui/styles";
 
 :root {
+  color-scheme: light dark;
   --background: #f7f4ea;
   --foreground: #243d32;
+  --heading: #1c3228;
+  --card-bg: #ffffff;
+  --card-border: rgba(36, 61, 50, 0.12);
   --primary: #243d32;
+  --primary-hover: #345847;
+  --primary-fg: #ffffff;
   --accent: #d9a66b;
+  --accent-hover: #c49156;
+  --accent-fg: #243d32;
   --sage: #dce5db;
-  --muted: #777b70;
-  --white: #ffffff;
+  --sage-fg: #243d32;
+  --muted: #6b7266;
+  --muted-bg: #ece8dc;
+  --input-bg: #ffffff;
+  --input-border: #d4dad2;
+  --modal-overlay: rgba(18, 30, 24, 0.65);
+}
+
+[data-theme="dark"],
+:root:has(> head > meta[name="color-scheme"][content="dark"]) {
+  color-scheme: dark;
+  --background: #111a15;
+  --foreground: #e4ece3;
+  --heading: #f0f7ef;
+  --card-bg: #182620;
+  --card-border: rgba(220, 229, 219, 0.12);
+  --primary: #38624e;
+  --primary-hover: #487e64;
+  --primary-fg: #f5f9f5;
+  --accent: #d9a66b;
+  --accent-hover: #e6b882;
+  --accent-fg: #111a15;
+  --sage: #1f332a;
+  --sage-fg: #d2ded5;
+  --muted: #9aa89b;
+  --muted-bg: #1a2a22;
+  --input-bg: #1a2b23;
+  --input-border: #2e4337;
+  --modal-overlay: rgba(5, 10, 8, 0.75);
 }
 
 * {
@@ -23,7 +58,8 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 a {
@@ -41,8 +77,8 @@ a {
 }
 
 ::selection {
-  background: #d9a66b;
-  color: #243d32;
+  background: var(--accent);
+  color: #1a2a22;
 }
 
 .container-width {
@@ -55,7 +91,7 @@ a {
 }
 
 .section-label {
-  color: #a16f39;
+  color: var(--accent);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -63,10 +99,11 @@ a {
 }
 
 .section-title {
-  font-size: clamp(30px, 4vw, 46px);
-  line-height: 1.15;
-  font-weight: 700;
-  letter-spacing: -1.5px;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.18;
+  font-weight: 800;
+  letter-spacing: -1.2px;
+  color: var(--heading);
 }
 
 .primary-button {
@@ -74,18 +111,22 @@ a {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 13px 23px;
-  background: #243d32;
-  color: white;
-  border: 1px solid #243d32;
-  border-radius: 6px;
+  padding: 12px 24px;
+  background: var(--primary);
+  color: var(--primary-fg);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
-  transition: 0.2s ease;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
 .primary-button:hover {
-  background: #365a48;
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
 .secondary-button {
@@ -93,18 +134,64 @@ a {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 13px 23px;
+  padding: 12px 24px;
   background: transparent;
-  color: #243d32;
-  border: 1px solid #243d32;
-  border-radius: 6px;
+  color: var(--foreground);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
-  transition: 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .secondary-button:hover {
-  background: #dce5db;
+  background: var(--sage);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* Modal Dialog per Modern Web Guidance */
+dialog:modal {
+  overscroll-behavior: contain;
+}
+
+dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background: var(--modal-overlay);
+  backdrop-filter: blur(4px);
+}
+
+/* Custom Swiper pagination styles */
+.swiper-pagination-bullet {
+  background: var(--accent) !important;
+  opacity: 0.45 !important;
+  width: 10px !important;
+  height: 10px !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  width: 26px !important;
+  border-radius: 6px !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--foreground) !important;
+  background: var(--card-bg);
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+  border: 1px solid var(--card-border) !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px !important;
+  font-weight: 700 !important;
 }
 
 @media (max-width: 640px) {
@@ -113,6 +200,6 @@ a {
   }
 
   .section-padding {
-    padding-block: 55px;
+    padding-block: 52px;
   }
 }
