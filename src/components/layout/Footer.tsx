@@ -1,34 +1,36 @@
 import Link from "next/link";
-import {
-  BookOpen,
-  Mail,
-  MapPin,
-} from "lucide-react";
+import { BookOpen, Mail, MapPin, Phone, Heart } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#20372d] text-[#f7f4ea]">
-      <div className="container-width grid gap-12 py-14 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="border-t border-[var(--card-border)] bg-[#1b2b23] text-[#edf2ee]">
+      <div className="container-width grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
+        {/* Brand column */}
         <div className="lg:col-span-2">
-          <Link href="/" className="mb-5 inline-flex items-center gap-2">
-            <BookOpen size={30} />
-            <span className="text-2xl font-bold">BookNook</span>
+          <Link href="/" className="mb-4 inline-flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent)] text-[#1b2b23] shadow-sm">
+              <BookOpen size={22} strokeWidth={2.2} />
+            </div>
+            <span className="font-serif text-2xl font-bold tracking-tight text-white">
+              BookNook
+            </span>
           </Link>
 
-          <p className="max-w-sm text-sm leading-7 text-[#d0d9d0]">
-            A little corner for every book lover. Discover new stories,
-            explore different worlds, and make reading a part of your everyday life.
+          <p className="max-w-md text-sm leading-relaxed text-[#c2cfc5]">
+            A quiet sanctuary for every curious mind. Discover extraordinary stories,
+            share your beloved books, and borrow from a vibrant community of readers.
+            Simple, seamless, and joyful reading.
           </p>
 
-          <div className="mt-6 flex gap-4">
+          <div className="mt-6 flex items-center gap-3">
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook"
-              className="rounded-full border border-white/20 p-2 transition hover:bg-white/10"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/15 text-sm font-bold text-white transition hover:border-[var(--accent)] hover:bg-white/10"
             >
-              <span className="text-lg font-bold">f</span>
+              f
             </a>
 
             <a
@@ -36,59 +38,77 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
-              className="rounded-full border border-white/20 p-2 transition hover:bg-white/10"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/15 text-sm font-bold text-white transition hover:border-[var(--accent)] hover:bg-white/10"
             >
-              <span className="text-lg font-bold">◎</span>
+              ◎
             </a>
 
+            {/* Official 𝕏 logo per requirements */}
             <a
               href="https://x.com"
               target="_blank"
               rel="noreferrer"
-              aria-label="X"
-              className="rounded-full border border-white/20 p-2 transition hover:bg-white/10"
+              aria-label="X (formerly Twitter)"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/15 text-sm font-bold text-white transition hover:border-[var(--accent)] hover:bg-white/10"
             >
-              <span className="text-lg font-bold">𝕏</span>
+              𝕏
             </a>
           </div>
         </div>
 
+        {/* Quick links */}
         <div>
-          <h3 className="mb-5 text-sm font-bold uppercase tracking-wider">
-            Explore
+          <h3 className="mb-4 text-xs font-bold uppercase tracking-[2px] text-[var(--accent)]">
+            Explore Library
           </h3>
 
-          <div className="flex flex-col gap-3 text-sm text-[#d0d9d0]">
-            <Link href="/" className="hover:text-white">Home</Link>
-            <Link href="/books" className="hover:text-white">All Books</Link>
-            <Link href="/login" className="hover:text-white">Login</Link>
-            <Link href="/register" className="hover:text-white">Register</Link>
+          <div className="flex flex-col gap-2.5 text-sm text-[#c2cfc5]">
+            <Link href="/" className="transition hover:text-white">
+              Home
+            </Link>
+            <Link href="/books" className="transition hover:text-white">
+              All Books
+            </Link>
+            <Link href="/add-book" className="transition hover:text-white">
+              Add a Book
+            </Link>
+            <Link href="/my-borrows" className="transition hover:text-white">
+              Borrowed Books
+            </Link>
           </div>
         </div>
 
+        {/* Contact info */}
         <div>
-          <h3 className="mb-5 text-sm font-bold uppercase tracking-wider">
+          <h3 className="mb-4 text-xs font-bold uppercase tracking-[2px] text-[var(--accent)]">
             Get in Touch
           </h3>
 
-          <div className="flex flex-col gap-4 text-sm text-[#d0d9d0]">
-            <div className="flex items-center gap-3">
-              <Mail size={17} />
-              <span>hello@booknook.com</span>
+          <div className="flex flex-col gap-3.5 text-sm text-[#c2cfc5]">
+            <div className="flex items-center gap-2.5">
+              <Mail size={16} className="text-[var(--accent)]" />
+              <span>reader@booknook.local</span>
             </div>
 
-            <div className="flex items-center gap-3">
-              <MapPin size={17} />
-              <span>Dhaka, Bangladesh</span>
+            <div className="flex items-center gap-2.5">
+              <Phone size={16} className="text-[var(--accent)]" />
+              <span>+1 (800) 266-5665</span>
+            </div>
+
+            <div className="flex items-center gap-2.5">
+              <MapPin size={16} className="text-[var(--accent)]" />
+              <span>42 Library Way, Reading Corner</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-white/15">
-        <div className="container-width flex flex-col justify-between gap-3 py-5 text-xs text-[#c4cec4] sm:flex-row">
+      <div className="border-t border-white/10 py-6">
+        <div className="container-width flex flex-col items-center justify-between gap-3 text-xs text-[#a2b3a6] sm:flex-row">
           <p>© 2026 BookNook. All rights reserved.</p>
-          <p>Made with love for book lovers.</p>
+          <p className="flex items-center gap-1.5">
+            Crafted for book lovers.
+          </p>
         </div>
       </div>
     </footer>
