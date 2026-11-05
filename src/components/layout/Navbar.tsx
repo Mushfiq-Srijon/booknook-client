@@ -100,7 +100,7 @@ export default function Navbar() {
                 href={item.href}
                 className={`rounded-lg px-3.5 py-2 text-sm font-semibold transition-all ${
                   isActive
-                    ? "bg-[var(--primary)] text-[var(--primary-fg)] shadow-xs"
+                    ? "bg-[var(--primary)] !text-white font-bold shadow-xs"
                     : "text-[var(--foreground)]/80 hover:bg-[var(--sage)]/50 hover:text-[var(--foreground)]"
                 }`}
               >
@@ -287,7 +287,7 @@ export default function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className={`rounded-lg px-3.5 py-2.5 text-sm font-semibold transition ${
                     isActive
-                      ? "bg-[var(--primary)] text-[var(--primary-fg)]"
+                      ? "bg-[var(--primary)] !text-white font-bold"
                       : "text-[var(--foreground)] hover:bg-[var(--sage)]/50"
                   }`}
                 >

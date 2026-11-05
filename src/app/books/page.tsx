@@ -228,7 +228,7 @@ function BooksContent() {
               onClick={() => setCategory("All")}
               className={`rounded-lg px-2.5 py-1 text-xs font-semibold transition ${
                 category === "All"
-                  ? "bg-[var(--primary)] text-[var(--primary-fg)]"
+                  ? "bg-[var(--primary)] !text-white font-bold"
                   : "bg-[var(--sage)]/50 text-[var(--foreground)] hover:bg-[var(--sage)]"
               }`}
             >
@@ -240,7 +240,7 @@ function BooksContent() {
                 onClick={() => setCategory(cat)}
                 className={`rounded-lg px-2.5 py-1 text-xs font-semibold transition ${
                   category === cat
-                    ? "bg-[var(--primary)] text-[var(--primary-fg)]"
+                    ? "bg-[var(--primary)] !text-white font-bold"
                     : "bg-[var(--sage)]/50 text-[var(--foreground)] hover:bg-[var(--sage)]"
                 }`}
               >
